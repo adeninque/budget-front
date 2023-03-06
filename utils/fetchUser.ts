@@ -1,36 +1,30 @@
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
+import IUser from "@/interfaces/IUser";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-
-async function getToken() {
-  const cookieStore = cookies()
-  const token = cookieStore.get('token')
-  if (token) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}auth/users/me/`, {
-      method: "POST",
-      headers: {
-        'Authorization': `Token ${token.value}`
-      }
-    })
-
-    if (res.ok) {
-      return await res.json()
-    } else goLogin()
-  }
-  else goLogin()
+function getToken(): RequestCookie | undefined {
+  const cookieStore = cookies();
+  const token = cookieStore.get("token");
+  if (!token) goLogin();
+  return token;
 }
 
 function goLogin() {
-  redirect('/login')
+  redirect("/login");
 }
 
-const fetchUser = async () => {
-  const token = await getToken()
+const fetchUser = async (): Promise<IUser> => {
+  const token = getToken();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}auth/users/me/`, {
+    method: "GET",
+    headers: {
+      Authorization: `Token ${token!.value}`,
+    },
+  });
 
-  return {
-    token, 
-    getToken
-  }
-}
+  if (!res.ok) goLogin();
+  return await res.json();
+};
 
-export default fetchUser
+export default fetchUser;

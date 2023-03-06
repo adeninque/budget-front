@@ -1,15 +1,11 @@
 import { Metadata } from 'next'
 import defalutMeta from '@/utils/defaultMeta'
 import './globals.css'
-import fetchUser from '@/utils/fetchUser'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
   ...defalutMeta,
   title: 'Budget'
-}
-
-const getUser = async () => {
-  const { token } = await fetchUser()
 }
 
 export default async function RootLayout({
@@ -17,10 +13,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const user = await getUser()
+  const navbar = await Navbar()
+
   return (
     <html lang="en">
       <body>{children}</body>
+      {navbar}
     </html>
   )
 }
