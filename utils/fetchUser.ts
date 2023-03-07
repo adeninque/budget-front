@@ -2,6 +2,7 @@ import IUser from "@/interfaces/IUser";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { cache } from "react";
 
 function getToken(): RequestCookie | undefined {
   const cookieStore = cookies();
@@ -14,7 +15,7 @@ function goLogin() {
   redirect("/login");
 }
 
-const fetchUser = async (): Promise<IUser> => {
+const fetchUser = cache(async (): Promise<IUser> => {
   const token = getToken();
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}auth/users/me/`, {
     method: "GET",
@@ -24,7 +25,7 @@ const fetchUser = async (): Promise<IUser> => {
   });
 
   if (!res.ok) goLogin();
-  return await res.json();
-};
+  return res.json();
+})
 
 export default fetchUser;

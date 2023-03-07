@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import defalutMeta from '@/utils/defaultMeta'
-import './globals.css'
+import '@/styles/globals.scss'
 import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
@@ -13,12 +13,13 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const navbar = await Navbar()
-
   return (
     <html lang="en">
-      <body>{children}</body>
-      {navbar}
+      <body>
+        {children}
+        {/* @ts-expect-error Async Server Component */}
+        <Navbar />
+      </body>
     </html>
   )
 }

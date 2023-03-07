@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 const Login = async () => {
   return(
     <>
-      <h1>Login</h1>
       <Form />
     </>
   )

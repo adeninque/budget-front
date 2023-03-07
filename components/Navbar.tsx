@@ -1,5 +1,3 @@
-import 'server-only'
-
 import fetchUser from "@/utils/fetchUser";
 
 const Navbar = async () => {

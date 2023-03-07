@@ -1,4 +1,5 @@
 import defalutMeta from "@/utils/defaultMeta"
+import '@/styles/globals.scss'
 
 export const metadata = {
   ...defalutMeta,
