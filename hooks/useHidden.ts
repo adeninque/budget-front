@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useAlert = () => {
+const useHidden = () => {
   const [hidden, setHidden] = useState(true)
   const toggleHidden = () => setHidden(prev => !prev)
 
@@ -10,4 +10,4 @@ const useAlert = () => {
   }
 }
 
-export default useAlert;
+export default useHidden;

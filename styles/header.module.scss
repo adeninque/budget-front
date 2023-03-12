@@ -1,0 +1,12 @@
+@import './variables.scss';
+
+.header {
+  padding: 1rem 0;
+  background-color: $clr-salad;
+  margin: 0 0 2rem 0;
+  &__logo {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}

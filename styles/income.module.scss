@@ -1,0 +1,42 @@
+@import './variables.scss';
+
+.income {
+  box-shadow: $style-shadow;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: block;
+  color: $clr-dark-3;
+
+  > * {
+    margin: 0 0 .5rem 0;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+  }
+
+  &__date {
+
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  > * {
+    padding: .5rem;
+  }
+
+  &__budget {
+    background-color: $clr-budget;
+  }
+
+  &__waste {
+    background-color: $clr-waste;
+  }
+
+  &__remains {
+    background-color: $clr-remain;
+  }
+}

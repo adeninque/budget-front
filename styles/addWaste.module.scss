@@ -1,0 +1,64 @@
+@import './variables.scss';
+
+.add {
+  margin: 2rem 0 0 0;
+  &__btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: $clr-sky;
+    border-radius: 1rem;
+    color: $clr-bright;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    transition: .3s ease-in-out;
+    &:hover {
+      background-color: $clr-sky-2;
+    }
+  }
+
+  &__form {
+  }
+}
+
+.form {
+  > * {
+    margin: 1rem 0 0 0;
+    
+    &:first-child {
+      margin: 0;
+    }
+  }
+  &__field {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    align-items: center;
+    margin: 1;
+    font-size: 1.5rem;
+  }
+
+  &__label {
+
+  }
+
+  &__input {
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  &__btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: $clr-sky;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $clr-bright;
+    border-radius: 1rem;
+    transition: .3s ease-in-out;
+    &:hover {
+      background-color: $clr-sky-2;
+    }
+  }
+}

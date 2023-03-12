@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import defalutMeta from '@/utils/defaultMeta'
 import '@/styles/globals.scss'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/navbar/Navbar'
+import Header from '@/components/Header'
 
 export const metadata: Metadata = {
   ...defalutMeta,
@@ -16,8 +17,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header />
         {children}
-        {/* @ts-expect-error Async Server Component */}
         <Navbar />
       </body>
     </html>

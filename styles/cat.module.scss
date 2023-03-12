@@ -1,0 +1,52 @@
+@import './variables.scss';
+
+.cat {
+  &__title {
+    font-size: 1.5rem;
+    span {
+      font-weight: 500;
+    }
+  }
+
+  &__total {
+    margin: .5rem 0 0 0;
+  }
+
+  &__amount {
+    color: $clr-remain;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  &__wastes {
+    margin: 2rem 0 0 0;
+  }
+}
+
+.wastes {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__body {
+    margin: 1rem 0 0 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: $style-shadow;
+  }
+}
+
+.waste {
+  padding: .5rem 1rem;
+  display: grid;
+  grid-template-columns: 9fr 3fr;
+
+  &__amount {
+    text-align: right;
+  }
+
+  &:nth-child(odd) {
+    background-color: $clr-bright-2;
+  }
+}

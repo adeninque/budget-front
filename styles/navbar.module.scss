@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.nav {
+  position: fixed;
+  bottom: .5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &__body {
+    background-color: $clr-dark-3;
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+  }
+  
+  &__link {
+    color: $clr-bright;
+    margin: 0 1rem 0 0;
+    &:last-child {
+      margin: 0;
+    }
+    &_active, &:hover {
+      color: $clr-salad;
+    }
+  }
+}

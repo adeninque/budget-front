@@ -6,16 +6,16 @@ import { setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import s from "@/styles/login.module.scss";
 import joinClasses from "@/utils/joinClasses";
-import useAlert from "@/hooks/useAlert";
+import useHidden from "@/hooks/useHidden";
 import Alert from "@/components/Alert";
 
 const Form = () => {
   const username = useInput("");
   const password = useInput("");
   const router = useRouter();
-  const [error, setError] = useState('')
-  const {hidden, toggleHidden} = useAlert()
-  
+  const [error, setError] = useState("");
+  const { hidden, toggleHidden } = useHidden();
+
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -32,25 +32,24 @@ const Form = () => {
           }),
         }
       );
-  
+
       if (res.ok) {
-        const data: { auth_token: string } = await res.json()
+        const data: { auth_token: string } = await res.json();
         setCookie("token", data.auth_token);
         router.push("/");
       } else {
-        const {non_field_errors: err} = (await res.json())
-        setError(err[0])
-        toggleHidden()
+        const { non_field_errors: err } = await res.json();
+        setError(err[0]);
+        toggleHidden();
       }
-    } catch(err) {
-      console.log(err)
+    } catch (err) {
+      console.log(err);
     }
-    
   };
 
   return (
     <>
-    {!hidden && <Alert msg={error} toggler={toggleHidden}/>}
+      {!hidden && <Alert msg={error} toggler={toggleHidden} />}
       <div className={s.wrapper}>
         <div className={s.fs}>
           <div className="container">

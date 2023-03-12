@@ -1,0 +1,79 @@
+@import './variables.scss';
+
+.add {
+  &__btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    background-color: $clr-sky;
+    color: $clr-bright;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    box-shadow: $style-shadow;
+    transition: .3s ease-in-out;
+    &:hover {
+      background-color: $clr-sky-2;
+    }
+  }
+}
+
+.form {
+  background-color: $clr-bright;
+
+  > * {
+    margin: 1rem 0 0 0;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  &__label {
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  &__input, &__date {
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  &__date {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+  
+
+  &__btn {
+    padding: 1rem;
+    background-color: $clr-sky;
+    width: 100%;
+    color: $clr-bright;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    font-weight: 500;
+    transition: .3s ease-in-out;
+    &:hover {
+      background-color: $clr-sky-2;
+    }
+  }
+}
