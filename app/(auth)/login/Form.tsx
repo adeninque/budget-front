@@ -13,7 +13,7 @@ const Form = () => {
   const username = useInput("", "username");
   const password = useInput("", "password");
   const router = useRouter();
-  const [remember, setRemember] = useState(false);
+  const [remember, setRemember] = useState(true);
   const [error, setError] = useState("");
   const { hidden, toggleHidden } = useHidden();
 
@@ -62,8 +62,6 @@ const Form = () => {
   const rememberUsername = () => {
     if (remember && username) {
       localStorage.setItem("username", username.bind.value);
-    } else {
-      localStorage.setItem("username", '');
     }
   };
 
